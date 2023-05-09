@@ -13,7 +13,7 @@ def angle_between(p1,p2,p3):
     angle = np.arccos(cosine_angle)
     return (np.degrees(angle))
 
-img = cv2.imread('arrow_2.png')
+img = cv2.imread('arrow_3.png')
 imgray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 thresh =cv2.threshold(imgray, 240, 255, cv2.THRESH_BINARY)
@@ -28,6 +28,8 @@ for contour in contours:
         #     print(approx[i][0])
         #     cv2.putText(img, str(i), approx[i][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0),1)
         angle=[]
+
+        print(approx[0][0])
 
         for i in range (7): #finding acute angles of all the vertex
             vertex = angle_between(approx[i-1][0], approx[i][0], approx[0][0] if i==6 else approx[i+1][0])

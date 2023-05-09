@@ -1,2 +1,5 @@
 notes.py
 test.py
+*.jpg
+*.png
+*.avi

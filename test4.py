@@ -48,7 +48,8 @@ while (1):
                                             check = True
                                             head = approx[i-2][0] if (i-2)<7 else approx[(i-2)+7][0]
 
-                                            tail[0] = approx[(i+1) if (i+1)]
+                                            tail.append((approx[(i+1) if (i+1)<7 else (i+1)-7][0][0] + approx[(i+2) if (i+2)<7 else (i+2)-7][0][0])/2)
+                                            tail.append((approx[(i+1) if (i+1)<7 else (i+1)-7][0][1] + approx[(i+2) if (i+2)<7 else (i+2)-7][0][1])/2)
 
                                             # tail = approx[i+1][0] if (i+1)<7 else approx[(i+1)-7][0]
                                             print('check')
@@ -56,9 +57,14 @@ while (1):
                                         
                 if check == True:
                     slope = (head[1] - tail[1]) / (head[0] - tail[0])
-                    if (-10 <= slope <= 10):
-                        if()
-                    cv2.putText(frame, 'Arrow', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                    if (-1 <= slope <= 1):
+                        if(head[0] > tail[0]):
+                            cv2.putText(frame, 'Right', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                        else:
+                            cv2.putText(frame, 'Left', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            
+                    else:        
+                        cv2.putText(frame, 'Straight', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
 
             else:
                 continue

@@ -13,6 +13,9 @@ def angle_between(p1,p2,p3):
     angle = np.arccos(cosine_angle)
     return (np.degrees(angle))
 
+# def index(i):
+#     if( i > 7):
+
 cap = cv2.VideoCapture(0)
 
 while (1):
@@ -52,7 +55,7 @@ while (1):
                                             tail.append((approx[(i+1) if (i+1)<7 else (i+1)-7][0][1] + approx[(i+2) if (i+2)<7 else (i+2)-7][0][1])/2)
 
                                             # tail = approx[i+1][0] if (i+1)<7 else approx[(i+1)-7][0]
-                                            print('check')
+                                            # print('check')
                                             break
                                         
                 if check == True:
@@ -63,8 +66,12 @@ while (1):
                         else:
                             cv2.putText(frame, 'Left', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
                             
-                    else:        
-                        cv2.putText(frame, 'Straight', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                    else:   
+                        if (head[1] < tail[1]):    
+                            cv2.putText(frame, 'Up', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                        else:
+                            cv2.putText(frame, 'Down', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            
 
             else:
                 continue

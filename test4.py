@@ -13,9 +13,6 @@ def angle_between(p1,p2,p3):
     angle = np.arccos(cosine_angle)
     return (np.degrees(angle))
 
-# def index(i):
-#     if( i > 7):
-
 cap = cv2.VideoCapture(0)
 
 while (1):

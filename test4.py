@@ -56,7 +56,10 @@ while (1):
                                             break
                                         
                 if check == True:
-                    slope = (head[1] - tail[1]) / (head[0] - tail[0])
+                    if(head[0]-tail[0]!=0):
+                        slope = (head[1] - tail[1]) / (head[0] - tail[0])
+                    else:
+                        slope = 100000
                     if (-1 <= slope <= 1):
                         if(head[0] > tail[0]):
                             cv2.putText(frame, 'Right', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)

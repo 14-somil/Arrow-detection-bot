@@ -3,3 +3,6 @@ test.py
 *.jpg
 *.png
 *.avi
+*spec
+build/
+dist/

@@ -61,16 +61,17 @@ while (1):
                     else:
                         slope = 100000
                     if (-1 <= slope <= 1):
+                        
                         if(head[0] > tail[0]):
-                            cv2.putText(frame, 'Right', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            cv2.putText(frame, 'Right', tuple(approx[0][0]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
                         else:
-                            cv2.putText(frame, 'Left', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            cv2.putText(frame, 'Left', tuple(approx[0][0]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
                             
                     else:   
                         if (head[1] < tail[1]):    
-                            cv2.putText(frame, 'Up', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            cv2.putText(frame, 'Up', tuple(approx[0][0]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
                         else:
-                            cv2.putText(frame, 'Down', approx[0][0], cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
+                            cv2.putText(frame, 'Down', tuple(approx[0][0]), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,0), 1)
                             
 
             else:

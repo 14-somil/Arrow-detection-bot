@@ -7,3 +7,4 @@ test.py
 build/
 dist/
 tempCodeRunnerFile.py
+.vscode

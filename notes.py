@@ -731,3 +731,69 @@ from matplotlib import pyplot as plt
 
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()
+
+## 24. TEMPLATE MATCHING
+
+# img = cv2.imread("messi5.jpg")
+# grey_img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# template = cv2.imread("messi5_face.jpg", 0)
+
+# w, h = template.shape[::-1]
+
+# res = cv2.matchTemplate(grey_img, template, cv2.TM_CCOEFF_NORMED)
+# print(res)
+# threshold = 0.95
+# loc = np.where(res >= threshold)
+# print(loc)
+
+# for pt in zip(*loc[::-1]):
+#     cv2.rectangle(img, pt, (pt[0]+w, pt[1]+h), (0, 255, 0), 2)
+
+
+# cv2.imshow('img', img)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+
+## 25. HOUGH TRANSFORMATION
+
+# img = cv2.imread('sudoku.png')
+# gray = cv2.cvtColor(img , cv2.COLOR_BGR2GRAY)
+# edges = cv2.Canny(gray, 50, 150, apertureSize=3)
+# lines = cv2.HoughLines(edges, 1, np.pi / 180, 200) # 2nd and 3rd argument are rho and angle resolution
+
+# for line in lines:
+#     rho, theta = line[0]
+#     a = np.cos(theta)
+#     b = np.sin(theta)
+#     x0 = a * rho
+#     y0 = b * rho
+    
+#     x1 = int(x0 + 1000 * (-b))
+#     y1 = int(y0 + 1000 * (a))
+#     x2 = int(x0 - 1000 * (-b))
+#     y2 = int(y0 - 1000 * (a))
+
+#     cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 2)
+    
+# cv2.imshow('img', img)
+# cv2.imshow('canny', edges)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
+
+
+## 26. PROBABILISTIC HOUGH LINE TRANSFORM
+
+# img = cv2.imread('sudoku.png')
+# gray = cv2.cvtColor(img , cv2.COLOR_BGR2GRAY)
+# edges = cv2.Canny(gray, 50, 150, apertureSize=3)
+# lines = cv2.HoughLinesP(edges, 1, np.pi / 180, 100, minLineLength=100, maxLineGap=10)
+
+# for line in lines:
+#     x1, y1, x2, y2 = line[0]
+#     cv2.line(img, (x1, y1), (x2, y2), (0,0,255), 2)
+    
+# cv2.imshow('img', img)
+# cv2.imshow('canny', edges)
+# cv2.waitKey(0)
+# cv2.destroyAllWindows()
